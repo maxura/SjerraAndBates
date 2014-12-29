@@ -1,37 +1,25 @@
-package ua.sjerra.book;
+package ua.sjerra.book.collections;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 /**
- * Created by nata on 28.12.2014.
+ * Created by nata on 26.12.2014.
  */
-public class JukeBox5 {
+public class JukeBox3 {
     ArrayList<Song> songList = new ArrayList<Song>();
 
     public static void main(String[] args) {
-        new JukeBox5().go();
-    }
-
-    class ArtistCompare implements Comparator<Song> {
-
-        @Override
-        public int compare(Song one, Song two) {
-            return one.getArtist().compareTo(two.getArtist());
-        }
+new JukeBox3().go();
     }
 
     public void go() {
         getSongs();
         System.out.println(songList);
         Collections.sort(songList);
-        System.out.println(songList);
-        ArtistCompare artistCompare = new ArtistCompare();
-        Collections.sort(songList, artistCompare);
         System.out.println(songList);
     }
 
@@ -55,3 +43,4 @@ public class JukeBox5 {
         songList.add(nextSong);
     }
 }
+

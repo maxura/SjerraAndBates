@@ -1,4 +1,4 @@
-package ua.sjerra.book;
+package ua.sjerra.book.collections;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,40 +7,36 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Created by nata on 26.12.2014.
+ * Hello world!
  */
-public class JukeBox3 {
-    ArrayList<Song> songList = new ArrayList<Song>();
+public class JukeBox1 {
+    ArrayList<String> songList = new ArrayList<String>();
 
     public static void main(String[] args) {
-new JukeBox3().go();
+        new JukeBox1().go();
     }
 
     public void go() {
-        getSongs();
-        System.out.println(songList);
+        getSong();
         Collections.sort(songList);
         System.out.println(songList);
     }
 
-    void getSongs() {
+    void getSong() {
         try {
-            File file = new File("D:\\SjerraAndBates\\my-app\\src\\main\\java\\ua\\sjerra\\book\\SongListMore.txt");
+            File file = new File("D:\\SjerraAndBates\\my-app\\src\\main\\java\\ua\\sjerra\\book\\SongList.txt");
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String line = null;
             while ((line = reader.readLine()) != null) {
-                addSongs(line);
+                addSong(line);
             }
-
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
-    void addSongs(String lineToParce) {
-        String[] tokens = lineToParce.split("/");
-        Song nextSong = new Song(tokens[0], tokens[1], tokens[2], tokens[3]);
-        songList.add(nextSong);
+    void addSong(String lineToParse) {
+        String[] tokens = lineToParse.split("/");
+        songList.add(tokens[0]);
     }
 }
-
