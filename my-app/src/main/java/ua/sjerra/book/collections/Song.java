@@ -3,11 +3,16 @@ package ua.sjerra.book.collections;
 /**
  * Created by nata on 26.12.2014.
  */
-public class Song implements Comparable<Song>{
+public class Song implements Comparable<Song> {
     String title;
     String artist;
     String rating;
     String bpm;
+
+    Song(String t) {
+        title = t;
+    }
+
     Song(String t, String a, String r, String b) {
         title = t;
         artist = a;
@@ -31,9 +36,21 @@ public class Song implements Comparable<Song>{
         return bpm;
     }
 
+
+    @Override
+    public boolean equals(Object asSong) {
+        Song s = (Song) asSong;
+        return getTitle().equals(s.getTitle());
+    }
+
+    @Override
+    public int hashCode() {
+        return title.hashCode();
+    }
+
     @Override
     public String toString() {
-        return title + ": " + artist;
+        return title;
     }
 
 
