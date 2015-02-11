@@ -20,7 +20,7 @@ public class ImageSample extends JPanel{
     }
 
     public void paintComponent(Graphics g) {
-       Image image = new ImageIcon("g:\\Rastr\\Fantasy\\TOM KIRK\\75tcal_08.jpg").getImage();
+       Image image = new ImageIcon("").getImage();
         g.drawImage(image,3,4, this);
     }
 }
