@@ -8,9 +8,10 @@ import java.awt.*;
  */
 public class Exersize400 {
     JButton button;
-JPanel jPanel;
+    JPanel jPanel;
+
     public static void main(String[] args) {
-      new  Exersize400().go();
+        new Exersize400().go();
     }
 
     public void go() {
@@ -18,7 +19,7 @@ JPanel jPanel;
         button = new JButton("click me");
         jPanel = new JPanel();
         frame.add(jPanel);
-        frame.getContentPane().add(BorderLayout.NORTH,button);
+        frame.getContentPane().add(BorderLayout.NORTH, button);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 300);
