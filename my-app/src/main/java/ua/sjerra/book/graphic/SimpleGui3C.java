@@ -20,7 +20,7 @@ public class SimpleGui3C implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JButton button = new JButton("change colors");
         button.addActionListener(this);
-        CircleOnBalckBackgraund drawPanel = new CircleOnBalckBackgraund();
+        CircleOnBalckBackground drawPanel = new CircleOnBalckBackground();
         frame.getContentPane().add(BorderLayout.SOUTH, button);
         frame.getContentPane().add(BorderLayout.CENTER, drawPanel);
         frame.setSize(300, 300);

@@ -6,9 +6,9 @@ import java.awt.*;
 /**
  * Created by Natalya on 07.02.2015.
  */
-public class CircleOnBalckBackgraund extends JPanel {
+public class CircleOnBalckBackground extends JPanel {
     public static void main(String[] args) {
-        new CircleOnBalckBackgraund().go();
+        new CircleOnBalckBackground().go();
     }
 
 
@@ -16,7 +16,7 @@ public class CircleOnBalckBackgraund extends JPanel {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 300);
-        frame.add(new CircleOnBalckBackgraund());
+        frame.add(new CircleOnBalckBackground());
         frame.setVisible(true);
     }
 
