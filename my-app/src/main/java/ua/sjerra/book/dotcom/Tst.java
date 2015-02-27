@@ -7,41 +7,40 @@ import java.util.Scanner;
  */
 public class Tst {
     public static void main(String[] args) {
-        int p = 1;
         int arr[] = new int[7];
         int numOfGuesses = 0;
-        int counter = 1;
-        int userData=0;
+        int counter = 0;
+        int userData = 0;
         int initNum = ((int) (Math.random() * 5));
-        System.out.println(initNum);
-        for (int i = 0; i < 3; i++) {
-            arr[initNum] = p++;
+        for (int i = 1; i < 4; i++) {
+            arr[initNum] = i;
             initNum++;
         }
 
-        for (int i : arr) {
-            System.out.print(arr[i]);
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + ", ");
         }
-//        while (counter != 3) {
-//            System.out.print("Input number: ");
-//            Scanner sc = new Scanner(System.in);
-//            userData =sc.nextInt();
-//            for (int i = 0; i < 7; i++) {
-//
-//                if (arr[i] == userData) {
-//                    counter++;
-//                    System.out.println("You hit:");
-//                    break;
-//                }
-//              else {
-//                    System.out.println("Not hit:");
-//                    break;
-//                }
-//            }
-//
-//        }
-//        System.out.println("Amout of guesses: " + numOfGuesses+1);
-//        System.out.println("You win after " + counter);
+        while (counter != 3) {
+            System.out.print("Input number: ");
+            Scanner sc = new Scanner(System.in);
+            userData = sc.nextInt();
+            for (int i = 0; i < arr.length; i++) {
+
+                if (arr[i] == userData) {
+                    counter++;
+                    System.out.println("You hit!");
+                    break;
+                }
+                if (i == arr.length-1) {
+                    System.out.println("You do not hit!");
+                }
+            }
+
+            numOfGuesses++;
+        }
+
+        System.out.println("You win after " + numOfGuesses);
 
     }
 }
