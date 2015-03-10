@@ -1,4 +1,4 @@
-package ua.sjerra.book.dotcom.homework;
+package ua.sjerra.book.dotcom;
 
 import java.util.Random;
 
