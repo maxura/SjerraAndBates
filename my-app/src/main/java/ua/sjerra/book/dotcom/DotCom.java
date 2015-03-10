@@ -7,9 +7,14 @@ import java.util.ArrayList;
  */
 public class DotCom {
     private ArrayList<String> locationCells;
+    private String name;
 
     public void setLocationCells(ArrayList<String> loc) {
         locationCells = loc;
+    }
+
+    public void setName(String n) {
+        name = n;
     }
 
     public String checkYourself(String userInput) {
@@ -19,6 +24,8 @@ public class DotCom {
             locationCells.remove(index);
             if (locationCells.isEmpty()) {
                 result = "Sank!";
+                System.out.println("Oh you are sinking" + name
+                        + " :(");
             } else {
                 result = "Hit!";
             }

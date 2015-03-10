@@ -17,6 +17,12 @@ public class SimpleDotCom {
         boolean isAlive = true;
         while (isAlive == true) {
             String guess = helper.getUserInput("Enter your number");
+            String result = theDotCom.checkYourSelf(guess);
+            numOfGuess++;
+            if (result.equals("Sank!")){
+                isAlive = false;
+                System.out.println("You are needed " + numOfGuess + " troughs");
+            }
         }
     }
 
