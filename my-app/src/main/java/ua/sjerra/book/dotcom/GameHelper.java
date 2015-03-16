@@ -26,7 +26,7 @@ public class GameHelper {
         } catch (IOException e) {
             System.out.println("IOException: " + e);
         }
-        return inputLine;
+        return inputLine.toLowerCase();
     }
 
     public ArrayList<String> placeDotCom(int comSize) {
@@ -39,18 +39,17 @@ public class GameHelper {
         int location = 0; // Текущее начальное местоположение
         comCount++;
         int incr = 1;
-        if ((comCount % 2) == 1)
+        if ((comCount % 2) == 1) {
             incr = gridLength;
-
+        }
 
         while (!success & attempts++ < 200) {
             location = (int) (Math.random() * gridSize);
-            //5y stent, out. print ("пробуем" + location);
+            System.out.println("trying: " + location);
             int x = 0;
             success = true;
             while (success && x < comSize) {
                 if (grid[location] == 0) {
-
                     coords[x++] = location;
                     location += incr;
                     if (location >= gridSize) {
@@ -63,23 +62,23 @@ public class GameHelper {
                     success = false; // Неудача
                 }
             }
-// Конец while
-            int x = 0;
-            int row = 0;
-            int column = 0;
-
-            while (x < comSize) {
-                grid[coords[xj] = 1;
-                row = (int) (coords[x] / gridLength);
-                column = coords[x] % gridLength;
-                temp = String.valueOf(alphabet.charAt(column));
-                alphaCells.add(temp.concat(Integer.toString(row)));
-                x++;
-                System.out.println();
-                return alphaCells;
-
-            }
         }
-    }
-}
+// Конец while
+        int x = 0;
+        int row = 0;
+        int column = 0;
 
+        while (x < comSize) {
+            grid[coords[x]] = 1;
+            row = (int) (coords[x] / gridLength);
+            column = coords[x] % gridLength;
+            temp = String.valueOf(alphabet.charAt(column));
+            alphaCells.add(temp.concat(Integer.toString(row)));
+            x++;
+            System.out.println();
+
+        }
+        return alphaCells;
+    }
+
+}
