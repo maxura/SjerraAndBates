@@ -37,7 +37,7 @@ public class GameHelper {
         int attempts = 0; // Счетчик текущих попыток
         boolean success = false; // Нашли подходящее местоположение?
         int location = 0; // Текущее начальное местоположение
-        comCount++;
+        comCount++; //Энный "сайт" для размещения
         int incr = 1;
         if ((comCount % 2) == 1) {
             incr = gridLength;
