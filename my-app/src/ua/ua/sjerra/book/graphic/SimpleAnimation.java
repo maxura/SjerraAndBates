@@ -19,7 +19,6 @@ public class SimpleAnimation extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         MyDrawPanel drawPanel = new MyDrawPanel();
         frame.setSize(600, 600);
-
         frame.getContentPane().add(drawPanel);
         frame.setVisible(true);
         for (int i = 0; i < 130; i++) {

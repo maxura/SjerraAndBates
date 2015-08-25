@@ -41,14 +41,12 @@ public class TwoButtons {
     }
 
     class LabelListener implements ActionListener {
-        @Override
         public void actionPerformed(ActionEvent e) {
             label.setText("Ouch");
         }
     }
 
-    class ColorListener implements  ActionListener{
-        @Override
+    class ColorListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             frame.repaint();
         }
