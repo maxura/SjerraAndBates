@@ -6,27 +6,27 @@ import java.awt.*;
 /**
  * Created by mmusienko on 2/19/15.
  */
-public class SimpleAnimatiomnWithFix {
+public class SimpleAnimation extends JPanel {
     JFrame frame = new JFrame();
-    int x = 500;
+    int x = 70;
     int y = 70;
 
     public static void main(String[] args) throws InterruptedException {
-        new SimpleAnimatiomnWithFix().go();
+        new SimpleAnimation().go();
     }
 
     public void go() throws InterruptedException {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         MyDrawPanel drawPanel = new MyDrawPanel();
         frame.setSize(600, 600);
-
         frame.getContentPane().add(drawPanel);
         frame.setVisible(true);
-        for (int i = 0; i < 170; i++) {
-            x-=3;
-            //y+=3;
+        for (int i = 0; i < 130; i++) {
+            x++;
+            y++;
             drawPanel.repaint();
-            Thread.sleep(100);
+            Thread.sleep(200);
+
         }
     }
 
@@ -34,11 +34,10 @@ public class SimpleAnimatiomnWithFix {
     class MyDrawPanel extends JPanel {
         @Override
         protected void paintComponent(Graphics g) {
-            g.setColor(Color.WHITE);
-            g.fillRect(0, 0, this.getWidth(), this.getHeight());
             g.setColor(Color.orange);
             g.fillOval(x, y, 100, 100);
         }
     }
+
 
 }
