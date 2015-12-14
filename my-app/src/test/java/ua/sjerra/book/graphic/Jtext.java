@@ -14,15 +14,19 @@ package ua.sjerra.book.graphic;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * //
  *
  * @author Musienko Maxim
  */
-public class Panel1 {
+public class Jtext {
+    static JTextField field = new JTextField(20);
+
     public static void main(String[] args) {
-        Panel1 gui = new Panel1();
+        Jtext gui = new Jtext();
         gui.go();
     }
 
@@ -30,15 +34,25 @@ public class Panel1 {
         JFrame frame = new JFrame();
         JPanel panel = new JPanel();
         panel.setBackground(Color.darkGray);
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        JButton button = new JButton("shock me");
-        JButton buttonTwo = new JButton("bliss");
-        panel.add(button);
-        panel.add(buttonTwo);
-
+        field.setText("check in");
+        System.out.println(field.getText());
+        field.addActionListener(new Action());
+        panel.add(field);
         frame.getContentPane().add(BorderLayout.EAST, panel);
-        frame.setSize(250,200);
+        frame.setSize(250, 200);
         frame.setVisible(true);
+
+
+    }
+
+    class Action implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            e.getActionCommand().
+            field.selectAll();
+            field.requestFocus();
+        }
     }
 
 }
