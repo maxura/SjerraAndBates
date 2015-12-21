@@ -23,8 +23,11 @@ public class BeatBox {
     Track                track;
     JFrame               theFrame;
     String[] instrumentNames =
-            {"Bass Dram", "Closed Hi-Hat", "Open Hi-Hat", "Acoustic share", "Crash Cymbal", "Hand Clap", "Cowbell", "Vibraslap",
-             "Low-mid Tom", "High Agogo", "Open Hi Conga"};
+            {"Bass Drum", "Closed Hi-Hat",
+             "Open Hi-Hat", "Acoustic Snare", "Crash Cymbal", "Hand Clap",
+             "High Tom", "Hi Bongo", "Maracas", "Whistle", "Low Conga",
+             "Cowbell", "Vibraslap", "Low-mid Tom", "High Agogo",
+             "Open Hi Conga"};
     int[]    instruments     = {35, 42, 46, 38, 49, 39, 50, 60, 70, 72, 64, 56, 58, 47, 67, 63};
 
     public static void main(String[] args) {
@@ -50,11 +53,11 @@ public class BeatBox {
         buttonBox.add(stop);
 
         JButton upTempo = new JButton("Up tempo");
-        start.addActionListener(new MysStopListener());
+        start.addActionListener(new MyUpTempoListener());
         buttonBox.add(upTempo);
 
         JButton downTempo = new JButton("Tempo Down");
-        start.addActionListener(new MysStopListener());
+        start.addActionListener(new MyDownTempoListener());
         buttonBox.add(downTempo);
 
         Box nameBox = new Box(BoxLayout.Y_AXIS);
@@ -105,7 +108,7 @@ public class BeatBox {
         for (int i = 0; i < 16; i++) {
             trackList = new int[16];
             int key = instruments[i];
-            for (int j = 0; j < trackList.length; j++) {
+            for (int j = 0; j < 16; j++) {
                 JCheckBox jc = (JCheckBox)checkBoxList.get(j + (16 * i));
                 if (jc.isSelected()) {
                     trackList[j] = key;
@@ -128,16 +131,6 @@ public class BeatBox {
         }
     }
 
-    public void makeTracks(int[] list) {
-        for (int i = 0; i < 16; i++) {
-            int key = list[i];
-            if (key != 0) {
-                track.add(makeEvent(144, 9, key, 100, i));
-                track.add(makeEvent(128, 9, key, 100, i + 1));
-            }
-        }
-    }
-
     public MidiEvent makeEvent(int comd, int chan, int one, int two, int tick) {
         MidiEvent event = null;
         try {
@@ -150,15 +143,41 @@ public class BeatBox {
         return event;
     }
 
+    public void makeTracks(int[] list) {
+        for (int i = 0; i < 16; i++) {
+            int key = list[i];
+            if (key != 0) {
+                track.add(makeEvent(144, 9, key, 100, i));
+                track.add(makeEvent(128, 9, key, 100, i + 1));
+            }
+        }
+    }
+
     public class MyStartListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            //buildTrackAndStart();
+            buildTrackAndStart();
         }
     }
 
     public class MysStopListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            //sequncer.stop();
+            sequencer.stop();
+        }
+    }
+
+    public class MyUpTempoListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            float tempoFactor = sequencer.getTempoFactor();
+            sequencer.setTempoFactor((float)(tempoFactor * 1.03));
+        }
+    }
+
+    public class MyDownTempoListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            float tempoFactor = sequencer.getTempoFactor();
+            sequencer.setTempoFactor((float)(tempoFactor * 0.97));
         }
     }
 }
