@@ -1,4 +1,4 @@
-package sjerra.book.collections;
+package ua.sjerra.book.collections;
 
 import java.net.MalformedURLException;
 

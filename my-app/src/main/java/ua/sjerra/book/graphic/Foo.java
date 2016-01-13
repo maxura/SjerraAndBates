@@ -1,4 +1,4 @@
-package sjerra.book.graphic;
+package ua.sjerra.book.graphic;
 
 /**
  * Created by nata on 12.02.2015.

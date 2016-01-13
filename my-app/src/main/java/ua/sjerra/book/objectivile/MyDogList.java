@@ -1,4 +1,4 @@
-package sjerra.book.objectivile;
+package ua.sjerra.book.objectivile;
 
 import com.sun.org.apache.xpath.internal.SourceTree;
 

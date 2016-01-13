@@ -1,4 +1,4 @@
-package sjerra.book.graphic;
+package ua.sjerra.book.graphic;
 
 import javax.sound.midi.MidiEvent;
 import javax.sound.midi.MidiSystem;
@@ -10,6 +10,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -180,4 +185,49 @@ public class BeatBox {
             sequencer.setTempoFactor((float)(tempoFactor * 0.97));
         }
     }
+
+
+    public class MySendListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            boolean[] checkBoxState = new boolean[256];
+            for (int i = 0; i < 256; i++) {
+                JCheckBox check = (JCheckBox)checkBoxList.get(i);
+                if (check.isSelected()) {
+                    checkBoxState[i] = true;
+                }
+
+            }
+            try {
+                FileOutputStream fileStream = new FileOutputStream(new File("CheckBox.ser"));
+                ObjectOutputStream os = new ObjectOutputStream(fileStream);
+                os.writeObject(checkBoxState);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    public class MyReadListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            boolean[] checkBoxState = null;
+            try {
+                FileInputStream fileIn = new FileInputStream(new File("CheckBox.ser"));
+                ObjectInputStream is = new ObjectInputStream(fileIn);
+                checkBoxState = (boolean[])is.readObject();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+            for (int i = 0; i < 256; i++) {
+                JCheckBox check = (JCheckBox)checkBoxList.get(i);
+                if (checkBoxState[i]) {
+                    check.setSelected(true);
+                } else check.setSelected(false);
+            }
+        }
+    }
+
 }

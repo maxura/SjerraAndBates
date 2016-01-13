@@ -1,4 +1,4 @@
-package sjerra.book.serialization;
+package ua.sjerra.book.serialization;
 
 import javax.swing.*;
 import java.awt.*;
@@ -66,7 +66,7 @@ public class QuizCardPlayer {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (isShowAnswer) {
-                //dispaly.setText(currentCard.getAnswer());
+                dispaly.setText(currentCard.getAnswer());
                 nextButton.setText("Next Card");
                 isShowAnswer = false;
             }
@@ -85,7 +85,7 @@ public class QuizCardPlayer {
     private void showNextCard(){
         currentCard = cardList.get(currentCardIndex);
         currentCardIndex++;
-      //  dispaly.setText(currentCard.getQuestion());
+        dispaly.setText(currentCard.getQuestion());
         nextButton.setText("Show answer");
         isShowAnswer = true;
     }

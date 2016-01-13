@@ -1,4 +1,4 @@
-package sjerra.book.numbers;
+package ua.sjerra.book.numbers;
 
 import java.util.Date;
 

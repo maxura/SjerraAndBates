@@ -10,7 +10,7 @@
  * Codenvy, S.A. - initial API and implementation
  * *****************************************************************************
  */
-package sjerra.book.exceptions;
+package ua.sjerra.book.exceptions;
 
 import javax.sound.midi.MidiEvent;
 import javax.sound.midi.MidiSystem;

@@ -1,4 +1,4 @@
-package sjerra.book.objectivile;
+package ua.sjerra.book.objectivile;
 
 import javax.smartcardio.CardChannel;
 
