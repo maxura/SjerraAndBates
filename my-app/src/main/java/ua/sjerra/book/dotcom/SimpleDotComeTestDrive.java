@@ -1,4 +1,4 @@
-package ua.sjerra.book.dotcom;
+package sjerra.book.dotcom;
 
 /**
  * Created by mmusienko on 2/23/15.

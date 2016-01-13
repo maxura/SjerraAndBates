@@ -1,4 +1,4 @@
-package ua.sjerra.book.collections;
+package sjerra.book.collections;
 
 /**
  * Created by nata on 04.01.2015.

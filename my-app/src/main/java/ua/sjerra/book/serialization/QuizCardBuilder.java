@@ -10,7 +10,7 @@
  * Codenvy, S.A. - initial API and implementation
  * *****************************************************************************
  */
-package ua.sjerra.book.serialization;
+package sjerra.book.serialization;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,8 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * //
- *
+ * // *
  * @author Musienko Maxim
  */
 public class QuizCardBuilder {

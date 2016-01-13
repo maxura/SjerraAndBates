@@ -1,4 +1,4 @@
-package ua.sjerra.book.collections;
+package sjerra.book.collections;
 
 import java.io.BufferedReader;
 import java.io.File;

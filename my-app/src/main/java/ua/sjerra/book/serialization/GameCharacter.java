@@ -10,7 +10,7 @@
  * Codenvy, S.A. - initial API and implementation
  * *****************************************************************************
  */
-package ua.sjerra.book.serialization;
+package sjerra.book.serialization;
 
 import java.io.Serializable;
 

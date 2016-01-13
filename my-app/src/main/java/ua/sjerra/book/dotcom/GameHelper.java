@@ -1,4 +1,4 @@
-package ua.sjerra.book.dotcom;
+package sjerra.book.dotcom;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package ua.sjerra.book.objectivile;
+package sjerra.book.objectivile;
 
 /**
  * Created by mmusienko on 4/6/15.

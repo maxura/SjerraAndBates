@@ -10,7 +10,7 @@
  * Codenvy, S.A. - initial API and implementation
  * *****************************************************************************
  */
-package ua.sjerra.book.graphic;
+package sjerra.book.graphic;
 
 import javax.sound.midi.*;
 

@@ -1,4 +1,4 @@
-package ua.sjerra.book.lifeobject;
+package sjerra.book.lifeobject;
 
 /**
  * Created by Natalya on 25.05.2015.

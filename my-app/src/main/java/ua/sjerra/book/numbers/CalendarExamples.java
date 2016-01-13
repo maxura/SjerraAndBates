@@ -1,4 +1,4 @@
-package ua.sjerra.book.numbers;
+package sjerra.book.numbers;
 
 import java.util.Calendar;
 

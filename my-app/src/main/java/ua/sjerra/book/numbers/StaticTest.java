@@ -1,4 +1,4 @@
-package ua.sjerra.book.numbers;
+package sjerra.book.numbers;
 
 /**
  * Created by Natalya on 31.05.2015.

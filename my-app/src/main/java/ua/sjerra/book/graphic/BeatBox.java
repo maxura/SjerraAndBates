@@ -1,4 +1,4 @@
-package ua.sjerra.book.graphic;
+package sjerra.book.graphic;
 
 import javax.sound.midi.MidiEvent;
 import javax.sound.midi.MidiSystem;

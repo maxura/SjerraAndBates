@@ -1,4 +1,4 @@
-package ua.sjerra.book.exceptions;
+package sjerra.book.exceptions;
 
 import javax.sound.midi.*;
 

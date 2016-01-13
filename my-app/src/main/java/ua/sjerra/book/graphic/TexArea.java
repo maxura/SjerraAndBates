@@ -1,4 +1,4 @@
-package ua.sjerra.book.graphic;
+package sjerra.book.graphic;
 
 import javax.swing.*;
 import java.awt.*;
