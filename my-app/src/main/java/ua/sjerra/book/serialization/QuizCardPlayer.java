@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -58,31 +62,53 @@ public class QuizCardPlayer {
     private class NextCardListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            if (isShowAnswer) {
+                dispaly.setText(currentCard.getAnswer());
+                nextButton.setText("Next Card");
+                isShowAnswer = false;
+            } else {
+                if (currentCardIndex < cardList.size()) {
+                    showNextCard();
+                } else {
+                    dispaly.setText("That was last card");
+                    nextButton.setEnabled(false);
+                }
+            }
         }
     }
 
     private class OpenMeLinustener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (isShowAnswer) {
-                dispaly.setText(currentCard.getAnswer());
-                nextButton.setText("Next Card");
-                isShowAnswer = false;
-            }
-            else {
-                if (currentCardIndex<cardList.size()){
-                    showNextCard();
-                }
-            }
+            JFileChooser fileOpen = new JFileChooser();
+            fileOpen.showOpenDialog(frame);
+            loadFile(fileOpen.getSelectedFile());
         }
     }
 
-    private void makeCard(String lineToParse){
-        String[]result =lineToParse.split("/");
+    private void loadFile(File file) {
+        cardList = new ArrayList<QuizCard>();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                makeCard(line);
+            }
+            reader.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        showNextCard();
     }
 
-    private void showNextCard(){
+    private void makeCard(String lineToParse) {
+        String[] result = lineToParse.split("/");
+        QuizCard card = new QuizCard(result[0], result[1]);
+        cardList.add(card);
+        System.out.println("made a card");
+    }
+
+    private void showNextCard() {
         currentCard = cardList.get(currentCardIndex);
         currentCardIndex++;
         dispaly.setText(currentCard.getQuestion());
