@@ -17,44 +17,11 @@ package ua.sjerra.book.net;
  *
  * @author Musienko Maxim
  */
-class Accum {
-    private static Accum a = new Accum();
-
-    private Accum() {
-
+public class ThreadTester {
+    public static void main(String[] args) {
+        Runnable threadJob = new MyRunable();
+        Thread myThread = new Thread(threadJob);
+        myThread.start();
+        System.out.println("Come back to the main");
     }
-
-    private int counter = 0;
-
-    public void updateCounter(int add) {
-        counter += add;
-    }
-
-    public int getCount() {
-        return counter;
-    }
-
-    public static Accum getAccum() {
-        return a;
-    }
-
-}
-
-class ThreadOne implements Runnable {
-
-    @Override
-    public void run() {
-
-    }
-}
-
-class ThreadTwo implements Runnable {
-
-    @Override
-    public void run() {
-     //   Accum a =
-    }
-}
-
-public class TestThread {
 }

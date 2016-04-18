@@ -39,11 +39,11 @@ public class RyanAndMonicaJob implements Runnable {
         }
     }
 
-    private void makeWithDrawal(int amount) {
+    private synchronized  void makeWithDrawal(int amount) {
         if (account.getBalance() >= amount) {
             System.out.println(Thread.currentThread().getName() +  " going to get money");
             try {
-                System.out.println(Thread.currentThread().getName() + "go to sleep");
+                System.out.println(Thread.currentThread().getName() + " go to sleep");
                 Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();

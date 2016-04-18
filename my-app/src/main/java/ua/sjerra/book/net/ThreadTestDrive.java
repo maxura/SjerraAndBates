@@ -17,44 +17,30 @@ package ua.sjerra.book.net;
  *
  * @author Musienko Maxim
  */
-class Accum {
-    private static Accum a = new Accum();
-
-    private Accum() {
-
-    }
-
-    private int counter = 0;
-
-    public void updateCounter(int add) {
-        counter += add;
-    }
-
-    public int getCount() {
-        return counter;
-    }
-
-    public static Accum getAccum() {
-        return a;
-    }
-
-}
-
-class ThreadOne implements Runnable {
+class MyRun implements Runnable {
 
     @Override
     public void run() {
+        go();
+    }
 
+    public void go() {
+        doMore();
+    }
+
+    public void doMore() {
+        System.out.println("Vertex of the stack");
     }
 }
 
-class ThreadTwo implements Runnable {
-
-    @Override
-    public void run() {
-     //   Accum a =
+public class ThreadTestDrive {
+    public static void main(String[] args) {
+        for (int i = 0; i < 100; i++) {
+            Runnable threadJob = new MyRun();
+            Thread myThreead = new Thread(threadJob);
+            myThreead.start();
+            System.out.println("Come back to method main");
+        }
     }
-}
 
-public class TestThread {
 }
